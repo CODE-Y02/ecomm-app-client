@@ -1,0 +1,19 @@
+.banner {
+  background-color: rgb(163, 219, 219);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.banner h2 {
+  font-size: 5rem;
+}
+.banner p {
+  margin-top: 0.5rem;
+  font-size: large;
+
+  font-weight: 800;
+}
