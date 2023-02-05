@@ -14,6 +14,10 @@ const Cart = (prop) => {
 
   const cartCtx = useContext(CartContext);
 
+  const cartTotal = cartCtx.items.reduce((total, itm) => {
+    return total + itm.quantity * itm.price;
+  }, 0);
+
   return (
     <Modal {...prop} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
@@ -63,7 +67,7 @@ const Cart = (prop) => {
 
           <div className="d-flex  justify-content-end align-items-center mt-3 fw-bold ">
             <h4 className=" mx-3 ">Total</h4>
-            <span className=" fw-semibold text-danger">0 $</span>
+            <span className=" fw-semibold text-danger">{cartTotal} $</span>
           </div>
         </Container>
       </Modal.Body>
