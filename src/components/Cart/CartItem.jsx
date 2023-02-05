@@ -1,6 +1,13 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-const CartItem = ({ title, price, quantity, imageUrl }) => {
+const CartItem = ({
+  title,
+  price,
+  quantity,
+  imageUrl,
+  onRemoveFromCart,
+  id,
+}) => {
   return (
     <Row className=" g-2 mt-1 pb-2 border-bottom">
       <Col
@@ -35,7 +42,14 @@ const CartItem = ({ title, price, quantity, imageUrl }) => {
         <span className=" p-2 bg-light border border-primary  rounded-2 ">
           {quantity}{" "}
         </span>
-        <Button variant="outline-danger"> remove</Button>
+        <Button
+          variant="outline-danger"
+          onClick={() => {
+            onRemoveFromCart({ title, price, quantity, imageUrl, id });
+          }}
+        >
+          remove
+        </Button>
       </Col>
     </Row>
   );

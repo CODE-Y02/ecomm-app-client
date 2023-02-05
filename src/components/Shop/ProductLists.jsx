@@ -8,7 +8,8 @@ const ProductLists = () => {
     <Row className="px-5 ">
       {productsArr.map((prod, idx) => (
         <Product
-          key={idx}
+          key={prod.title + idx}
+          prodId={prod.title + idx}
           idx={idx}
           title={prod.title}
           imageUrl={prod.imageUrl}

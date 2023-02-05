@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
-import { cartElements } from "../../DUMMY_DATA";
+import CartContext from "../../store/cart-context";
+// import { cartElements } from "../../DUMMY_DATA";
 import CartItem from "./CartItem";
 
 const Cart = (prop) => {
   const { onHide, onPurchase } = prop;
+
+  const cartCtx = useContext(CartContext);
+
   return (
     <Modal {...prop} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
@@ -43,13 +47,16 @@ const Cart = (prop) => {
 
           {/* below this we will have cart items  */}
 
-          {cartElements.map((item, idx) => {
+          {cartCtx.items.map((item, idx) => {
             return (
               <CartItem
+                key={idx}
+                id={item.id}
                 title={item.title}
                 price={item.price}
                 quantity={item.quantity}
                 imageUrl={item.imageUrl}
+                onRemoveFromCart={cartCtx.removeItem}
               />
             );
           })}
@@ -61,7 +68,7 @@ const Cart = (prop) => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={onPurchase}>PURCHASE</Button>
+        <Button onClick={onPurchase}>Purchase</Button>
         <Button onClick={onHide} variant="secondary">
           Close
         </Button>

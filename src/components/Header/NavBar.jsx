@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Badge,
   Button,
   Container,
-  Image,
   Nav,
   Navbar,
   NavItem,
 } from "react-bootstrap";
+
 import { Cart } from "react-bootstrap-icons";
+import CartContext from "../../store/cart-context";
 
 const NavBar = ({ onCartShow }) => {
+  const { items } = useContext(CartContext);
+
+  const totalCartItems = items.reduce((totalTillNow, currItm) => {
+    return totalTillNow + currItm.quantity;
+  }, 0);
+
   return (
     <Navbar bg="dark" sticky="top" expand>
       <Container className=" d-flex  flex-wrap  flex-column flex-sm-row ">
@@ -32,7 +39,7 @@ const NavBar = ({ onCartShow }) => {
         </Nav>
         <Button variant="outline-light" color="info" onClick={onCartShow}>
           <Badge bg="danger" text="white" pill>
-            9
+            {totalCartItems}
           </Badge>
           <Cart />
         </Button>
