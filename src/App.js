@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="app">
       <Header onCartShow={showCartHandler} />
-      <Cart show={showCart} onHide={hideCartHandler} />
+      <Cart animation show={showCart} onHide={hideCartHandler} />
 
       <main>
         <Section title={"merch"}>
