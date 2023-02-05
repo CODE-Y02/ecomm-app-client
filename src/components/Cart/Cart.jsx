@@ -9,7 +9,7 @@ import { cartElements } from "../../DUMMY_DATA";
 import CartItem from "./CartItem";
 
 const Cart = (prop) => {
-  const { onHide } = prop;
+  const { onHide, onPurchase } = prop;
   return (
     <Modal {...prop} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
@@ -53,10 +53,18 @@ const Cart = (prop) => {
               />
             );
           })}
+
+          <div className="d-flex  justify-content-end align-items-center mt-3 fw-bold ">
+            <h4 className=" mx-3 ">Total</h4>
+            <span className=" fw-semibold text-danger">0 $</span>
+          </div>
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={onHide}>Close</Button>
+        <Button onClick={onPurchase}>PURCHASE</Button>
+        <Button onClick={onHide} variant="secondary">
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );
