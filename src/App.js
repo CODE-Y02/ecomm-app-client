@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Section from "./components/Section/Section";
 import ProductLists from "./components/Shop/ProductLists";
@@ -25,6 +26,7 @@ function App() {
           <ProductLists />
         </Section>
       </main>
+      <Footer />
     </div>
   );
 }
