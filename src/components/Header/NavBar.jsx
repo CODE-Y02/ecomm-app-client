@@ -8,8 +8,7 @@ import {
   Navbar,
   NavItem,
 } from "react-bootstrap";
-
-import cartIcon from "../../assets/images/cart-icon.png";
+import { Cart } from "react-bootstrap-icons";
 
 const NavBar = ({ onCartShow }) => {
   return (
@@ -35,7 +34,7 @@ const NavBar = ({ onCartShow }) => {
           <Badge bg="danger" text="white" pill>
             9
           </Badge>
-          <Image src={cartIcon} fluid bsPrefix height="20px" />
+          <Cart />
         </Button>
       </Container>
     </Navbar>
