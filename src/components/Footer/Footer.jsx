@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: "rgb(163, 219, 219)" }}>
       <Container className="p-3">
-        <Row className=" text-center border-bottom border-dark  pb-3 ">
+        <Row className="text-center border-bottom border-dark  pb-3 ">
           <Col>
             <Github size={24} cursor="pointer" />
           </Col>

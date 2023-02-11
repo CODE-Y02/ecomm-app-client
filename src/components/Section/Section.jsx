@@ -1,9 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-const Section = ({ children, title }) => {
+const Section = ({ children, title, className }) => {
   return (
-    <section className="d-flex flex-column justify-content-center align-items-center py-4">
+    <section
+      className={`d-flex flex-column justify-content-center align-items-center py-4 +${className}`}
+    >
       {title && (
         <h2
           //   style={{ textAlign: "center", textTransform: "capitalize" }}
