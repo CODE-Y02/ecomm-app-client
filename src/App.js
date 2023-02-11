@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Section from "./components/Section/Section";
-import ProductLists from "./components/Shop/ProductLists";
+
+import About from "./pages/About";
+import Home from "./pages/Home";
+import RootLayout from "./pages/Root";
+import Shop from "./pages/Shop";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -16,18 +18,31 @@ function App() {
   const showCartHandler = () => {
     setShowCart(true);
   };
-  return (
-    <div className="app">
-      <Header onCartShow={showCartHandler} />
-      <Cart animation show={showCart} onHide={hideCartHandler} scrollable />
 
-      <main>
-        <Section title={"merch"}>
-          <ProductLists />
-        </Section>
-      </main>
-      <Footer />
-    </div>
+  //  router
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout onCartShow={showCartHandler} />,
+      children: [
+        { path: "/shop", element: <Shop /> },
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+      ],
+    },
+  ]);
+
+  // <div className="app">
+  //   <Header onCartShow={showCartHandler} />
+  //  <Cart animation show={showCart} onHide={hideCartHandler} scrollable />
+
+  //   <Footer />
+  // </div>;
+  return (
+    <>
+      <Cart animation show={showCart} onHide={hideCartHandler} scrollable />
+      <RouterProvider router={router} />
+    </>
   );
 }
 

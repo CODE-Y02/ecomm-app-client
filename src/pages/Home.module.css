@@ -1,0 +1,11 @@
+.hero {
+  background-color: rgb(163, 219, 219);
+}
+.ticket {
+  background: #56ccf2;
+  color: white;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: 700;
+}

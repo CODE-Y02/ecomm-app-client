@@ -1,0 +1,19 @@
+a {
+  text-decoration: none !important;
+  border: 1px solid whitesmoke;
+  padding: 0.3rem 0.5rem;
+  margin: auto 0.3rem;
+  color: white !important;
+  border-radius: 0.5rem;
+}
+
+a:hover {
+  background-color: whitesmoke !important;
+  color: black !important;
+}
+
+a.active {
+  background-color: rgb(83, 255, 246);
+  color: black !important;
+  font-weight: 600;
+}
